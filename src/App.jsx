@@ -51,8 +51,8 @@ const buscarMundos= e => {
         <input id='serch' type="number" />
         <button>Serch</button>
       </form>
-     
-    {
+     <div className='card-padre1'> 
+      {
       mundos?.residents.map(url =>(
       <Card
        key={url}
@@ -60,6 +60,8 @@ const buscarMundos= e => {
       />
       ))
     }
+     </div>
+    
     </div>
   )
 }

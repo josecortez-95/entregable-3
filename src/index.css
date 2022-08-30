@@ -30,6 +30,12 @@ header {
     color: #E5E5E5;
     margin: 10px;
 }
+.card-padre1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
 p{
     margin: 10px;
     color: #E5E5E5;
@@ -61,12 +67,6 @@ p{
 }
 form{
     text-align: center;
-}
-.card-padre{
-    display: flex;
-    justify-content: center;
-    
-    
 }
 .card{
    
