@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    background-color: #E5E5E5;
+}
+
+.App {
+    margin: 0 auto;
+    width: 80%;
+    background-color: #05292E;
+}
+
+.fondo-heder {
+    width: 100%;
+    height: 370px;
+    background-repeat: no-repeat;
+    background-image: url("https://www.xtrafondos.com/thumbs/1_9235.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nombre-menu{
+    margin: 1px;
+    color: #E5E5E5;
+    margin: 10px;
+}
+p{
+    margin: 10px;
+    color: #E5E5E5;
+}
+.datos {
+    
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    background-color: #062226;
+}
+@media (min-width: 800px){
+    .datos{
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    p{
+       color: #E5E5E5;  
+       justify-content: center;
+    }
+    .nombre-menu{
+        color: #FFFFFF;
+        margin: 1px;
+    }
+}
+form{
+    text-align: center;
+}
+.card-padre{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.card{
+   
+    background-color: #062226;
+    margin-top: 15px;
+}
+h2{
+    color: #E5E5E5;
+    margin: 15px;
+}
+h3{
+    margin: 10px;
+    color: #7E7E7E;
+}
+span{
+    color: #E5E5E5;
+    margin: 15px;
+    margin-bottom: 10px;
+    
+}
