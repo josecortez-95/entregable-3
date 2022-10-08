@@ -1,40 +1,25 @@
+*{
+    list-style: none;
+}
 body {
     margin: 0;
-    background-color: #E5E5E5;
+    background-image: url(https://64.media.tumblr.com/8f3a2365a86e5af01aaaf73845ab1351/89d27ea1cb22c852-54/s640x960/3ac6ff555467cd7724cbf7d50570147835357dd9.gif);
+   
+} 
+.img-gif{
+    background-image: url(https://media.tenor.com/k5JMOBQlND0AAAAC/rick-and-morty-run-the-jewels.gif);
+    height: 307px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center top;
 }
 
 .App {
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     background-color: #05292E;
-}
-
-.fondo-heder {
-    width: 100%;
-    height: 370px;
-    background-repeat: no-repeat;
-    background-image: url("https://www.xtrafondos.com/thumbs/1_9235.jpg");
-
-    background-size: cover;
-    background-position: center;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.nombre-menu{
-    margin: 1px;
-    color: #E5E5E5;
-    margin: 10px;
-}
-.card-padre1{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
+    
 }
 p{
     margin: 10px;
@@ -49,22 +34,7 @@ p{
     text-align: center;
     background-color: #062226;
 }
-@media (min-width: 800px){
-    .datos{
-        flex-direction: row;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    p{
-       color: #E5E5E5;  
-       justify-content: center;
-    }
-    .nombre-menu{
-        color: #FFFFFF;
-        margin: 1px;
-    }
-}
+
 form{
     text-align: center;
 }
@@ -86,4 +56,26 @@ span{
     margin: 15px;
     margin-bottom: 10px;
     
+}
+.cuerpo{
+    width: 100%;
+    
+}
+
+.super{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.error-pantalla{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+img{
+    width: 70%;
+    height: 500px;
 }

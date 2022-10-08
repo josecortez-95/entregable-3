@@ -1,69 +1,80 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from "axios"
-
 import './App.css'
-import Card from './componentes/Card'
+import randonLocation from "./utilis/randonLocation"
+import Mundos from './componentes/Mundos'
+import Info from './componentes/Info'
+import Sugeren from './componentes/Sugeren'
+import ErrorPantalla from './componentes/ErrorPantalla'
 
 
 function App() {
-const [mundos, setMundos] = useState()
-const [buscador, setBuscador] = useState(" ")
+   const [mundos, setMundos] = useState()
+   const [buscador, setBuscador] = useState()
+   const [filteres, setfilteres] = useState(undefined)
+   const [errorPantalla, seterrorPantalla] = useState(false)
 
-useEffect(()=>{
-  let randonMundo
-if(buscador === " "){
-   randonMundo= Math.floor( Math.random() *(126+1) -1)
-}else{
-  randonMundo=buscador
-}
-  const url= `https://rickandmortyapi.com/api/location/${randonMundo}`
-    axios.get(url)
-    .then(err =>setMundos(err.data)) 
+   useEffect(() => {
+      let id = randonLocation()
+      if (buscador) {
+         id = buscador
+      }
+      const URL = `https://rickandmortyapi.com/api/location/${id}`
+      axios.get(URL)
+         .then(res => {
+            seterrorPantalla(false)
+            setMundos(res.data)
 
-},[buscador])
+         })
+         .catch(err => seterrorPantalla(err))
+   }, [buscador])
 
-const buscarMundos= e => {
-     e.preventDefault()
-    setBuscador(e.target.serch.value)
-}
+   const handleButon = event => {
+      event.preventDefault()
+      setBuscador(event.target.locationId.value)
+   }
+   const filterchange = event => {
+      if (event.target.value === "") {
+         setfilteres()
+      } else {
+         const URL = `https://rickandmortyapi.com/api/location/?name=${event.target.value}`
+         axios.get(URL)
+            .then(res => setfilteres(res.data.results))
+            .catch(err => console.log(err))
+      }
+   }
+   return (
+      <div className='App'>
+         <div className='img-gif'>
 
-
-  return (
-    <div className="App">
-      <header>
-      <div className='fondo-heder'>
-      </div>
-         <div className='datos'>
-          <h3 className='nombre-menu'>Nombre:</h3>
-            <p> {mundos?.name}  </p>
-          <h3 className='nombre-menu'>Tipo:  </h3>
-            <p> {mundos?.type} </p> 
-          <h3 className='nombre-menu'>Dimension:  </h3>
-            <p> {mundos?.dimension} </p>
-            
-          <h3 className='nombre-menu'>Poblacion: </h3>
-            <p> {mundos?.residents.length} </p> 
          </div>
-      </header>
-    
-      <form onSubmit={buscarMundos}>
-        <input id='serch' type="number" />
-        <button>Serch</button>
-      </form>
-     <div className='card-padre1'> 
-      {
-      mundos?.residents.map(url =>(
-      <Card
-       key={url}
-       url={url}
-      />
-      ))
-    }
-     </div>
-    
-    </div>
-  )
+         <form onSubmit={handleButon}>
+            <input type="text" id='locationId' onChange={filterchange} />
+            <button>serch</button>
+         </form>
+         <Sugeren filteres={filteres} setBuscador={setBuscador} />
+         <div className='cuerpo'>
+            {
+               errorPantalla ?
+                  <ErrorPantalla /> :
+                  <div>
+                     <Info mundos={mundos} />
+                     <div className='super'>
+                        {
+                           mundos?.residents.map(url => (
+                              <Mundos key={url} url={url} />
+                           ))
+                        }
+                     </div>
+
+                  </div>
+            }
+         </div>
+
+      </div>
+   )
+
 }
 
 export default App
