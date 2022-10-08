@@ -6,8 +6,11 @@ body {
     background-image: url(https://64.media.tumblr.com/8f3a2365a86e5af01aaaf73845ab1351/89d27ea1cb22c852-54/s640x960/3ac6ff555467cd7724cbf7d50570147835357dd9.gif);
    
 } 
-.img-gif{
-    background-image: url(https://media.tenor.com/k5JMOBQlND0AAAAC/rick-and-morty-run-the-jewels.gif);
+h1{
+    color: #E5E5E5;
+}
+.img-cabecera{
+  
     height: 307px;
     background-repeat: no-repeat;
     width: 100%;
@@ -69,13 +72,18 @@ span{
     justify-content: center;
 }
 .error-pantalla{
-   
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-img{
+.imagen-error{
     width: 70%;
-    height: 500px;
+    margin-bottom: 50px;
+}
+.cabecera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

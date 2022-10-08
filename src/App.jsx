@@ -7,6 +7,7 @@ import Mundos from './componentes/Mundos'
 import Info from './componentes/Info'
 import Sugeren from './componentes/Sugeren'
 import ErrorPantalla from './componentes/ErrorPantalla'
+import Header from './componentes/Header'
 
 
 function App() {
@@ -46,9 +47,7 @@ function App() {
    }
    return (
       <div className='App'>
-         <div className='img-gif'>
-
-         </div>
+         <Header/>
          <form onSubmit={handleButon}>
             <input type="text" id='locationId' onChange={filterchange} />
             <button>serch</button>
